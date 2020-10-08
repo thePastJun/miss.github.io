@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>前端性能优化 | web瞎搞</title>
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="web瞎搞" type="application/atom+xml">
+  <meta name="description" content="前端性能优化的七大手段123456789101112131. 减少请求数量2. 减小资源大小3. 优化网络连接4. 优化资源加载5. 减少重绘回流6. 性能更好的API7. webpack优化 线程与进程的区别   12一个程序至少有一个进程,一个进程至少有一个线程. 线程的划分尺度小于进程，使得多线程程序的并发性高  你如何对网站的文件和资源进行优化？12345期待的解决方案包括： 文件合并 文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端性能优化">
+<meta property="og:url" content="http://yoursite.com/2020/10/08/performance/index.html">
+<meta property="og:site_name" content="web瞎搞">
+<meta property="og:description" content="前端性能优化的七大手段123456789101112131. 减少请求数量2. 减小资源大小3. 优化网络连接4. 优化资源加载5. 减少重绘回流6. 性能更好的API7. webpack优化 线程与进程的区别   12一个程序至少有一个进程,一个进程至少有一个线程. 线程的划分尺度小于进程，使得多线程程序的并发性高  你如何对网站的文件和资源进行优化？12345期待的解决方案包括： 文件合并 文">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-08T12:34:12.719Z">
+<meta property="article:modified_time" content="2020-10-08T12:36:12.993Z">
+<meta property="article:author" content="李某人">
+<meta name="twitter:card" content="summary">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="web瞎搞">
+  <meta name="msapplication-starturl" content="http://yoursite.com/2020/10/08/performance/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="web瞎搞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  
+    <meta property="article:published_time" content="Thu Oct 08 2020 20:34:12 GMT+0800">
+    <meta property="article:modified_time" content="Thu Oct 08 2020 20:36:12 GMT+0800">
+  
+
+  
+    <link rel="canonical" href="http://yoursite.com/2020/10/08/performance/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">web瞎搞</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">李某人</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:1477068773@qq.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '1477068773@qq.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">主页</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">归档</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="mdui-ripple sidebar_archives-count">5</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">分类</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">分类为空</a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">标签</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">标签为空</a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">关于</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">友情链接</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://juejin.im/user/4230576475215160/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">掘金</a>
+        
+          <a href="https://github.com/thePastJun/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-14.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">前端性能优化</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-10-08 / <i class="iconfont">&#xe601;</i> 李某人</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=前端性能优化&url=http://yoursite.com/2020/10/08/performance/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=前端性能优化&url=http://yoursite.com/2020/10/08/performance/&via=李某人" target="_blank" class="mdui-ripple">分享到Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/10/08/performance/" target="_blank" class="mdui-ripple">分享到Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/10/08/performance/" target="_blank" class="mdui-ripple">分享到Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/10/08/performance/&title=前端性能优化" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=web瞎搞&title=前端性能优化&summary=&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2020/10/08/performance/" target="_blank" class="mdui-ripple">分享到QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/10/08/performance/&text=前端性能优化" target="_blank" class="mdui-ripple">分享到Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h2 id="前端性能优化的七大手段"><a href="#前端性能优化的七大手段" class="headerlink" title="前端性能优化的七大手段"></a>前端性能优化的七大手段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1. 减少请求数量</span><br><span class="line"></span><br><span class="line">2. 减小资源大小</span><br><span class="line"></span><br><span class="line">3. 优化网络连接</span><br><span class="line"></span><br><span class="line">4. 优化资源加载</span><br><span class="line"></span><br><span class="line">5. 减少重绘回流</span><br><span class="line"></span><br><span class="line">6. 性能更好的API</span><br><span class="line"></span><br><span class="line">7. webpack优化</span><br></pre></td></tr></table></figure>
+<h2 id="线程与进程的区别"><a href="#线程与进程的区别" class="headerlink" title="线程与进程的区别"></a>线程与进程的区别</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">一个程序至少有一个进程,一个进程至少有一个线程. </span><br><span class="line">线程的划分尺度小于进程，使得多线程程序的并发性高</span><br></pre></td></tr></table></figure>
+
+<h2 id="你如何对网站的文件和资源进行优化？"><a href="#你如何对网站的文件和资源进行优化？" class="headerlink" title="你如何对网站的文件和资源进行优化？"></a>你如何对网站的文件和资源进行优化？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">期待的解决方案包括：</span><br><span class="line"> 文件合并</span><br><span class="line"> 文件最小化&#x2F;文件压缩</span><br><span class="line"> 使用 CDN 托管</span><br><span class="line"> 缓存的使用（多个域名来提供缓存）</span><br></pre></td></tr></table></figure>
+
+<h2 id="请说出三种减少页面加载时间的方法。"><a href="#请说出三种减少页面加载时间的方法。" class="headerlink" title="请说出三种减少页面加载时间的方法。"></a>请说出三种减少页面加载时间的方法。</h2><p> 1.优化图片<br> 2.图像格式的选择（GIF：提供的颜色较少，可用在一些对颜色要求不高的地方）<br> 3.优化CSS（压缩合并css，如margin-top,margin-left…)<br> 4.网址后加斜杠（如<a target="_blank" rel="noopener" href="http://www.campr.com/%E7%9B%AE%E5%BD%95%EF%BC%8C%E4%BC%9A%E5%88%A4%E6%96%AD%E8%BF%99%E4%B8%AA%E2%80%9C%E7%9B%AE%E5%BD%95%E6%98%AF%E4%BB%80%E4%B9%88%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%EF%BC%8C%E6%88%96%E8%80%85%E6%98%AF%E7%9B%AE%E5%BD%95%E3%80%82%EF%BC%89">www.campr.com/目录，会判断这个“目录是什么文件类型，或者是目录。）</a><br> 5.标明高度和宽度（如果浏览器没有找到这两个参数，它需要一边下载图片一边计算大小，如果图片很多，浏览  器需要不断地调整页面。这不但影响速度，也影响浏览体验。<br>当浏览器知道了高度和宽度参数后，即使图片暂时无法显示，页面上也会腾出图片的空位，然后继续加载后    面的内容。从而加载时间快了，浏览体验也更好了。） </p>
+<p>  6.减少http请求（合并文件，合并图片）。</p>
+<h2 id="哪些操作会造成内存泄漏？"><a href="#哪些操作会造成内存泄漏？" class="headerlink" title="哪些操作会造成内存泄漏？"></a>哪些操作会造成内存泄漏？</h2><p>内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。<br>垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。</p>
+<p>setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。<br>闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）</p>
+<h2 id="什么叫优雅降级和渐进增强？"><a href="#什么叫优雅降级和渐进增强？" class="headerlink" title="什么叫优雅降级和渐进增强？"></a>什么叫优雅降级和渐进增强？</h2><p>优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于IE独特的盒模型布局问题，针对不同版本的IE的hack实践过优雅降级了,为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效.</p>
+<p>渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。</p>
+<h2 id="你有哪些性能优化的方法？"><a href="#你有哪些性能优化的方法？" class="headerlink" title="你有哪些性能优化的方法？"></a>你有哪些性能优化的方法？</h2><p>  （1） 减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存         ，图片服务器。</p>
+<p>  （2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变    量，不用请求，减少请求次数</p>
+<p>  （3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。</p>
+<p>  （4） 当需要设置的样式很多时设置className而不是直接操作style。</p>
+<p>  （5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。</p>
+<p>  （6） 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。</p>
+<p>  （7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。</p>
+<h2 id="前端安全问题？"><a href="#前端安全问题？" class="headerlink" title="前端安全问题？"></a>前端安全问题？</h2><p>​    （XSS，sql注入，CSRF）<br>CSRF：是跨站请求伪造，很明显根据刚刚的解释，他的核心也就是请求伪造，通过伪造身份提交POST和GET请求来进行跨域的攻击。</p>
+<p><strong>完成CSRF需要两个步骤：</strong></p>
+<p>1.登陆受信任的网站A，在本地生成COOKIE</p>
+<p>2.在不登出A的情况下，或者本地COOKIE没有过期的情况下，访问危险网站B。</p>
+<h2 id="JavaScript原型，原型链-有什么特点？"><a href="#JavaScript原型，原型链-有什么特点？" class="headerlink" title="JavaScript原型，原型链 ? 有什么特点？"></a>JavaScript原型，原型链 ? 有什么特点？</h2><ul>
+<li>原型对象也是普通的对象，是对象一个自带隐式的 <strong>proto</strong> 属性，原型也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链。</li>
+<li>原型链是由一些用来继承和共享属性的对象组成的（有限的）对象链。</li>
+</ul>
+<h2 id="Vue实现数据双向绑定的原理：Object-defineProperty"><a href="#Vue实现数据双向绑定的原理：Object-defineProperty" class="headerlink" title="Vue实现数据双向绑定的原理：Object.defineProperty()"></a>Vue实现数据双向绑定的原理：Object.defineProperty()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue实现数据双向绑定主要是：采用数据劫持结合发布者-订阅者模式的方式，通过 Object.defineProperty() 来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应监听回调。当把一个普通 Javascript 对象传给 Vue 实例来作为它的 data 选项时，Vue 将遍历它的属性，用 Object.defineProperty() 将它们转为 getter&#x2F;setter。用户看不到 getter&#x2F;setter，但是在内部它们让 Vue追踪依赖，在属性被访问和修改时通知变化。</span><br></pre></td></tr></table></figure>
+
+<h2 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">**beforeCreate**（创建前） : 在数据观测和初始化事件还未开始</span><br><span class="line"></span><br><span class="line">**created**（创建后）: 完成数据观测，属性和方法的运算，初始化事件，$el属性还没有显示出来</span><br><span class="line"></span><br><span class="line">**beforeMount**（载入前）: 在挂载开始之前被调用，相关的render函数首次被调用。实例已完成以下的配置：编译模板，把data里面的数据和模板生成html。注意此时还没有挂载html到页面上。</span><br><span class="line"></span><br><span class="line">**mounted**（载入后）: 在el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用。实例已完成以下的配置：用上面编译好的html内容替换el属性指向的DOM对象。完成模板中的html渲染到html页面中。此过程中进行ajax交互。</span><br><span class="line"></span><br><span class="line">**beforeUpdate**（更新前）: 在数据更新之前调用，发生在虚拟DOM重新渲染和打补丁之前。可以在该钩子中进一步地更改状态，不会触发附加的重渲染过程。</span><br><span class="line"></span><br><span class="line">**updated**（更新后）: 在由于数据更改导致的虚拟DOM重新渲染和打补丁之后调用。调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作。然而在大多数情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环。该钩子在服务器端渲染期间不被调用。</span><br><span class="line"></span><br><span class="line">**beforeDestroy**（销毁前）: 在实例销毁之前调用。实例仍然完全可用。</span><br><span class="line"></span><br><span class="line">**destroyed**（销毁后）: 在实例销毁之后调用。调用后，所有的事件监听器会被移除，所有的子实例也会被销毁。该钩子在服务器端渲染期间不被调用。</span><br></pre></td></tr></table></figure>
+
+<p><strong>什么是vue生命周期？</strong></p>
+<ul>
+<li>答： Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、销毁等一系列过程，称之为 Vue 的生命周期。</li>
+</ul>
+<p><strong>vue生命周期的作用是什么？</strong></p>
+<ul>
+<li>答：它的生命周期中有多个事件钩子，让我们在控制整个Vue实例的过程时更容易形成好的逻辑。</li>
+</ul>
+<h4 id="proxyscrape代理"><a href="#proxyscrape代理" class="headerlink" title="proxyscrape代理"></a>proxyscrape代理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">112.218.231.42:1080</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 特殊字符限定</span><br><span class="line"> * *&#x2F;</span><br><span class="line"> 定义在main.js里面</span><br><span class="line">Vue.prototype.specialCharacterQualification &#x3D; function (value) &#123;</span><br><span class="line">  value &#x3D; value.replace(&#x2F;[&#96;~!@$%^&amp;()_\-+&#x3D;&lt;&gt;?:&quot;&#123;&#125;|,.&#x2F;;&#39;\\[\]·~！@￥%……&amp;（）——\-+&#x3D;&#123;&#125;|《》？：“”【】、；‘’，。、]&#x2F;g, &#39;&#39;).replace(&#x2F;\s&#x2F;g, &quot;&quot;);</span><br><span class="line">  return value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在全局子组件中使用：</span><br><span class="line">    &lt;el-input</span><br><span class="line">         :value&#x3D;&quot;keyWordForm.labelName&quot;</span><br><span class="line">         @input&#x3D;&quot;e &#x3D;&gt; keyWordForm.labelName &#x3D; specialCharacterQualification(e)&quot;</span><br><span class="line">         placeholder&#x3D;&quot;请输入分类标签名称&quot;&gt;</span><br><span class="line">    &lt;&#x2F;el-input&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="elementui框架文字输入框限定-arrow-down-small"><a href="#elementui框架文字输入框限定-arrow-down-small" class="headerlink" title="elementui框架文字输入框限定:arrow_down_small:"></a>elementui框架文字输入框限定:arrow_down_small:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form-item label&#x3D;&quot;联系方式&quot;&gt;</span><br><span class="line">     &lt;el-input v-model&#x3D;&quot;basicForm.contact&quot; maxlength&#x3D;&quot;11&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">&lt;&#x2F;el-form-item&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="js对象数据合并去重"><a href="#js对象数据合并去重" class="headerlink" title="js对象数据合并去重"></a>js对象数据合并去重</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function unique(arr) &#123;</span><br><span class="line">    let obj &#x3D; &#123;&#125;;</span><br><span class="line">    return arr.filter(function(item,index,arrow)&#123;</span><br><span class="line">        return obj.hasOwnProperty(typeof item + item) ? false : (obj[typeof item + item] &#x3D; true)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">let arr &#x3D; [1,1,&#39;true&#39;,&#39;true&#39;,[&#39;3&#39;],[&#39;3&#39;],[5],true,true,15,15,false,false,undefined,undefined,null,null,NaN,NaN,&#39;NaN&#39;,0,0,&#39;b&#39;,&#39;b&#39;,&#123;&#125;,&#123;&#125;]</span><br><span class="line">console.log(arr)</span><br><span class="line">console.log(unique(arr))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  表单提交</span><br><span class="line"> fillInTheRoomDataFrom () &#123;</span><br><span class="line">            let param&#x3D;&#123;</span><br><span class="line">                </span><br><span class="line">            &#125;;</span><br><span class="line">            this.$confirm(&#39;请确定当前填写信息无误。&#39;, &#39;提示&#39;, &#123;</span><br><span class="line">                confirmButtonText: &#39;确定&#39;,</span><br><span class="line">                cancelButtonText: &#39;取消&#39;,</span><br><span class="line">                type: &#39;warning&#39;</span><br><span class="line">            &#125;).then(() &#x3D;&gt; &#123;</span><br><span class="line">                postBehavior(&#39;&#39;, param).then(res &#x3D;&gt; &#123;</span><br><span class="line">                    </span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;).catch(() &#x3D;&gt; &#123;</span><br><span class="line">                this.$message(&#123;</span><br><span class="line">                    type: &#39;info&#39;,</span><br><span class="line">                    message: &#39;已取消&#39;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="对于-undefined、任意的函数以及-symbol-三个特殊的值分别作为对象属性的值、数组元素、单独的值时-JSON-stringify-将返回不同的结果。"><a href="#对于-undefined、任意的函数以及-symbol-三个特殊的值分别作为对象属性的值、数组元素、单独的值时-JSON-stringify-将返回不同的结果。" class="headerlink" title="对于 undefined、任意的函数以及 symbol 三个特殊的值分别作为对象属性的值、数组元素、单独的值时 JSON.stringify()将返回不同的结果。"></a><strong>对于 undefined、任意的函数以及 symbol 三个特殊的值分别作为对象属性的值、数组元素、单独的值时 JSON.stringify()将返回不同的结果。</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const data &#x3D; &#123;</span><br><span class="line">  a: &quot;aaa&quot;,</span><br><span class="line">  b: undefined,</span><br><span class="line">  c: Symbol(&quot;dd&quot;),</span><br><span class="line">  fn: function() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">JSON.stringify(data); &#x2F;&#x2F; 输出：？</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &quot;&#123;&quot;a&quot;:&quot;aaa&quot;&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="怎么优化CDN对于静态资源的缓存？"><a href="#怎么优化CDN对于静态资源的缓存？" class="headerlink" title="怎么优化CDN对于静态资源的缓存？"></a>怎么优化CDN对于静态资源的缓存？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">这则分是否是首次</span><br><span class="line">1.如果是首次：</span><br><span class="line">    可能是因为cdn没有资源，需要去源站拉取数据缓存，那么就需要将源站的内容先预热cdn上，后面用户访问的时候，就可以直接命中</span><br><span class="line">2.如果不是首次：</span><br><span class="line">	一.资源访问量低，文件预热度不够，cdn收的请求少，无法有效命中缓存</span><br><span class="line">	二.资源配置不合理，缓存时间段及cdn节点频回流</span><br><span class="line">	三.http Header设置导致无法缓存，这个时候就需要检查cache-control和expires的设置</span><br><span class="line">	四.大文件开启range回源</span><br><span class="line">	五.做资源的动态分离，对于动态文件和静态文件放到不同的域名下面，加速静态资源</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>本文链接：</strong><a href="http://yoursite.com/2020/10/08/performance/">http://yoursite.com/2020/10/08/performance/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2020/10/08/commonMethod/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2020/10/08/interviewQuestion/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <a href="1477068773" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe651;</i></a>
+    
+    
+      <a href="LJJ5998MX" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe6e1;</i></a>
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2020 李某人<br>
+    Powered by <a href="https://juejin.im/user/4230576475215160/" target="_blank" class="mdui-text-color-theme-accent">掘金</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

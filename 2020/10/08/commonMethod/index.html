@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>前端常用方法积累 | web瞎搞</title>
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="web瞎搞" type="application/atom+xml">
+  <meta name="description" content="三运算1234let arr &#x3D; 5 &gt; 3 ? 6 : 5&#x2F;&#x2F; 表达式判断 ？ 真 ： 假			   6     5console.log(arr)    多层判断表单提交12345678910111213141516171819202122232425262728293031approvalEndVisible () &amp;#123;            le">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端常用方法积累">
+<meta property="og:url" content="http://yoursite.com/2020/10/08/commonMethod/index.html">
+<meta property="og:site_name" content="web瞎搞">
+<meta property="og:description" content="三运算1234let arr &#x3D; 5 &gt; 3 ? 6 : 5&#x2F;&#x2F; 表达式判断 ？ 真 ： 假			   6     5console.log(arr)    多层判断表单提交12345678910111213141516171819202122232425262728293031approvalEndVisible () &amp;#123;            le">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1583807196152.png">
+<meta property="article:published_time" content="2020-10-08T12:37:12.799Z">
+<meta property="article:modified_time" content="2020-10-08T12:38:17.960Z">
+<meta property="article:author" content="李某人">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/1583807196152.png">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="web瞎搞">
+  <meta name="msapplication-starturl" content="http://yoursite.com/2020/10/08/commonMethod/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="web瞎搞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  
+    <meta property="article:published_time" content="Thu Oct 08 2020 20:37:12 GMT+0800">
+    <meta property="article:modified_time" content="Thu Oct 08 2020 20:38:17 GMT+0800">
+  
+
+  
+    <link rel="canonical" href="http://yoursite.com/2020/10/08/commonMethod/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">web瞎搞</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">李某人</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:1477068773@qq.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '1477068773@qq.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">主页</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">归档</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="mdui-ripple sidebar_archives-count">5</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">分类</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">分类为空</a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">标签</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">标签为空</a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">关于</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">友情链接</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://juejin.im/user/4230576475215160/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">掘金</a>
+        
+          <a href="https://github.com/thePastJun/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-10.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">前端常用方法积累</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-10-08 / <i class="iconfont">&#xe601;</i> 李某人</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=前端常用方法积累&url=http://yoursite.com/2020/10/08/commonMethod/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=前端常用方法积累&url=http://yoursite.com/2020/10/08/commonMethod/&via=李某人" target="_blank" class="mdui-ripple">分享到Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/10/08/commonMethod/" target="_blank" class="mdui-ripple">分享到Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/10/08/commonMethod/" target="_blank" class="mdui-ripple">分享到Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/10/08/commonMethod/&title=前端常用方法积累" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=web瞎搞&title=前端常用方法积累&summary=&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2020/10/08/commonMethod/" target="_blank" class="mdui-ripple">分享到QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/10/08/commonMethod/&text=前端常用方法积累" target="_blank" class="mdui-ripple">分享到Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h3 id="三运算"><a href="#三运算" class="headerlink" title="三运算"></a>三运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; 5 &gt; 3 ? 6 : 5</span><br><span class="line">&#x2F;&#x2F; 表达式判断 ？ 真 ： 假</span><br><span class="line">			   6     5</span><br><span class="line">console.log(arr)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="多层判断表单提交"><a href="#多层判断表单提交" class="headerlink" title="多层判断表单提交"></a>多层判断表单提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">approvalEndVisible () &#123;</span><br><span class="line">            let param &#x3D; &#123;</span><br><span class="line">              cityId: this.cityId,</span><br><span class="line">              houseId:this.reviewDrawingRow.houseId,</span><br><span class="line">              auditResultType: &#39;1&#39;</span><br><span class="line">            &#125;</span><br><span class="line">            this.$confirm(&#39;确认进行当前操作吗？&#39;, &#39;提示&#39;, &#123;</span><br><span class="line">                  confirmButtonText: &#39;确定&#39;,</span><br><span class="line">                  cancelButtonText: &#39;取消&#39;,</span><br><span class="line">                  type: &#39;warning&#39;</span><br><span class="line">                &#125;).then(() &#x3D;&gt; &#123;           					postBehavior(&#39;&#x2F;master&#x2F;data&#x2F;actuary&#x2F;checkDesignPicture&#39;,param).then(res &#x3D;&gt; &#123;</span><br><span class="line">                      console.log(res)</span><br><span class="line">                      if (res.resultCode !&#x3D;&#x3D; 1000) &#123;</span><br><span class="line">                          return this.$message.error(res.resultMsg)</span><br><span class="line">                      &#125; </span><br><span class="line">                      this.$message(&#123;</span><br><span class="line">                        message: res.resultMsg,</span><br><span class="line">                        type: &quot;success&quot;,</span><br><span class="line">                        duration: 500,</span><br><span class="line">                        onClose: () &#x3D;&gt; &#123;</span><br><span class="line">                          this.reviewDrawingsVisible &#x3D; false</span><br><span class="line">                        &#125;</span><br><span class="line">                      &#125;);</span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;).catch(() &#x3D;&gt; &#123;</span><br><span class="line">                  this.$message(&#123;</span><br><span class="line">                      type: &#39;info&#39;,</span><br><span class="line">                      message: &#39;已取消&#39;</span><br><span class="line">                  &#125;)</span><br><span class="line">                &#125;);</span><br><span class="line">          &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">deminingOptionsDataForm () &#123;</span><br><span class="line">      let param &#x3D; &#123;</span><br><span class="line">          houseId: this.confirmRechargeForm.houseId,</span><br><span class="line">          questionJson: JSON.stringify(this.questionJson)</span><br><span class="line">      &#125;</span><br><span class="line">      this.$confirm(&#39;请确定当前排雷信息全部填写完了？&#39;, &#39;提示&#39;, &#123;</span><br><span class="line">              confirmButtonText: &#39;确定&#39;,</span><br><span class="line">              cancelButtonText: &#39;取消&#39;,</span><br><span class="line">              type: &#39;warning&#39;</span><br><span class="line">            &#125;).then(() &#x3D;&gt; &#123;</span><br><span class="line">              let bool &#x3D; true;</span><br><span class="line">              this.deminingOptionsList.forEach(v &#x3D;&gt; &#123;</span><br><span class="line">                  if ( v.questionOptionId &#x3D;&#x3D;&#x3D; &#39;&#39;) &#123;</span><br><span class="line">                      bool &#x3D; false;</span><br><span class="line">                      return this.$message.error(&#39;请全部填写完排雷选项&#39;)</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;);</span><br><span class="line">              if  (bool) &#123;</span><br><span class="line">                  postBehavior(&#39;master&#x2F;member&#x2F;question&#x2F;setQuantityQuestion&#39;, param).then(res &#x3D;&gt; &#123;</span><br><span class="line">                              if (res.resultCode !&#x3D;&#x3D; 1000) &#123;</span><br><span class="line">                                  return this.$message.error(res.resultMsg)</span><br><span class="line">                              &#125; </span><br><span class="line">                              this.$message(&#123;</span><br><span class="line">                                  message: res.resultMsg,</span><br><span class="line">                                  type: &quot;success&quot;,</span><br><span class="line">                                  duration: 600,</span><br><span class="line">                                  onClose: () &#x3D;&gt; &#123;</span><br><span class="line">                                      this.selectMineClearanceOptionsVisible &#x3D; false</span><br><span class="line">                                  &#125;</span><br><span class="line">                              &#125;);</span><br><span class="line">                  &#125;)</span><br><span class="line">              &#125;  </span><br><span class="line">            &#125;).catch(() &#x3D;&gt; &#123;</span><br><span class="line">              this.$message(&#123;</span><br><span class="line">                  type: &#39;info&#39;,</span><br><span class="line">                  message: &#39;已取消&#39;</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;);</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="特殊字符限定"><a href="#特殊字符限定" class="headerlink" title="特殊字符限定"></a>特殊字符限定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * 特殊字符限定</span><br><span class="line"> * *&#x2F;</span><br><span class="line"> 定义在main.js里面</span><br><span class="line">Vue.prototype.specialCharacterQualification &#x3D; function (value) &#123;</span><br><span class="line">  value &#x3D; value.replace(&#x2F;[&#96;~!@$%^&amp;()_\-+&#x3D;&lt;&gt;?:&quot;&#123;&#125;|,.&#x2F;;&#39;\\[\]·~！@￥%……&amp;（）——\-+&#x3D;&#123;&#125;|《》？：“”【】、；‘’，。、]&#x2F;g, &#39;&#39;).replace(&#x2F;\s&#x2F;g, &quot;&quot;);</span><br><span class="line">  return value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在全局子组件中使用：</span><br><span class="line">    &lt;el-input</span><br><span class="line">         :value&#x3D;&quot;keyWordForm.labelName&quot;</span><br><span class="line">         @input&#x3D;&quot;e &#x3D;&gt; keyWordForm.labelName &#x3D; specialCharacterQualification(e)&quot;</span><br><span class="line">         placeholder&#x3D;&quot;请输入分类标签名称&quot;&gt;</span><br><span class="line">    &lt;&#x2F;el-input&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="elementui框架文字和空格输入框限定"><a href="#elementui框架文字和空格输入框限定" class="headerlink" title="elementui框架文字和空格输入框限定"></a>elementui框架文字和空格输入框限定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form-item label&#x3D;&quot;联系方式&quot;&gt;</span><br><span class="line">       &lt;el-input v-model.trim&#x3D;&quot;basicForm.contact&quot; maxlength&#x3D;&quot;11&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">&lt;&#x2F;el-form-item&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="element-UI-框架-el-input-触发不了-key-enter事件"><a href="#element-UI-框架-el-input-触发不了-key-enter事件" class="headerlink" title="element-UI 框架 el-input 触发不了 @key.enter事件"></a>element-UI 框架 el-input 触发不了 @key.enter事件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">解决方案：使用@key.center.native</span><br><span class="line">    &lt;el-input v-model&#x3D;&quot;form.loginName&quot;</span><br><span class="line">    placeholder&#x3D;&quot;账号&quot; </span><br><span class="line">    @keyup.enter.native&#x3D;&quot;doLogin&quot;&gt;</span><br><span class="line">    &lt;&#x2F;el-input&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-如何获取拉回数据后图片的高度？"><a href="#vue-如何获取拉回数据后图片的高度？" class="headerlink" title="vue 如何获取拉回数据后图片的高度？"></a>vue 如何获取拉回数据后图片的高度？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	&lt;img</span><br><span class="line">    :src&#x3D;&quot;userInfo.profilePicture&quot;</span><br><span class="line">    alt</span><br><span class="line">    class&#x3D;&quot;img-picture&quot;</span><br><span class="line">    v-if&#x3D;&quot;userInfo.profilePicture&quot;</span><br><span class="line">    ref&#x3D;&quot;myImg&quot;</span><br><span class="line">    @load&#x3D;&quot;imageFn&quot;</span><br><span class="line">&gt;</span><br><span class="line"> imageFn() &#123;</span><br><span class="line">    console.log(this.$refs.myImg.offsetHeight);</span><br><span class="line">    console.log(this.$refs.myImg.offsetWidth);</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="关于移动端样式兼容的问题"><a href="#关于移动端样式兼容的问题" class="headerlink" title="关于移动端样式兼容的问题"></a>关于移动端样式兼容的问题</h3><p><code>设置meta标签viewport属性，使其无视设备的真实分辨率，直接通过dpi，在物理尺寸和浏览器之间重设分辨率，从而达到能有统一的分辨率的效果。并且禁止掉用户缩放</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1.0, maximum-scale&#x3D;1.0, minimum-scale&#x3D;1.0, user-scalable&#x3D;no&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Vue-vm-set-api-数组或者对象赋值或者其他"><a href="#Vue-vm-set-api-数组或者对象赋值或者其他" class="headerlink" title="Vue vm.set()api (数组或者对象赋值或者其他)"></a>Vue vm.set()api (数组或者对象赋值或者其他)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">res.resultObj.list.map(v &#x3D;&gt; &#123;</span><br><span class="line">                 this.$set(v,&#39;questionOptionId&#39;,&#39;&#39;) </span><br><span class="line">             &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="银行卡正则表达式"><a href="#银行卡正则表达式" class="headerlink" title="银行卡正则表达式"></a>银行卡正则表达式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;^([1-9]&#123;1&#125;)(\d&#123;15&#125;|\d&#123;16&#125;|\d&#123;17&#125;|\d&#123;18&#125;)$&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单提交"><a href="#表单提交" class="headerlink" title="表单提交"></a>表单提交</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">this.$prompt(&#39;打回原因&#39;, &#39;确定打回吗？&#39;, &#123;</span><br><span class="line">              confirmButtonText: &#39;确定&#39;,</span><br><span class="line">              cancelButtonText: &#39;取消&#39;,</span><br><span class="line">              inputPlaceholder: &#39;请输入原因&#39;,</span><br><span class="line">              inputValidator: function judge(value)&#123;</span><br><span class="line">                  if(!value)&#123;</span><br><span class="line">                      return &#39;打回原因不能为空&#39;</span><br><span class="line">                  &#125; else if(value.length&gt;20)&#123;</span><br><span class="line">                       return &#39;字数超出限制&#39;</span><br><span class="line">                  &#125; </span><br><span class="line">                  let regs &#x3D; &#x2F;^[^\s]*$&#x2F;</span><br><span class="line">                  return regs.test(value)</span><br><span class="line">              &#125;,</span><br><span class="line">          &#125;).then((&#123; value &#125;) &#x3D;&gt; &#123;</span><br><span class="line">              param.failReason &#x3D; value;</span><br><span class="line">              postBehavior(&#39;&#x2F;store&#x2F;sup&#x2F;setDjSupplierReject&#39;, param).then(res &#x3D;&gt; &#123;</span><br><span class="line">                      if (res.resultCode !&#x3D;&#x3D; 1000) &#123;</span><br><span class="line">                          return this.$message.error(res.resultMsg);</span><br><span class="line">                      &#125;</span><br><span class="line">                      this.$message(&#123;</span><br><span class="line">                          message: res.resultMsg,</span><br><span class="line">                          type: &quot;success&quot;,</span><br><span class="line">                          duration: 600,</span><br><span class="line">                          onClose: () &#x3D;&gt; &#123;</span><br><span class="line">                            this.auditDialogVisible &#x3D; false;</span><br><span class="line">                            this.getList();</span><br><span class="line">                          &#125;</span><br><span class="line">                      &#125;);</span><br><span class="line">              &#125;)</span><br><span class="line">          &#125;).catch(() &#x3D;&gt; &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="倒计时"><a href="#倒计时" class="headerlink" title="倒计时"></a>倒计时</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">getCountDown()&#123;</span><br><span class="line">         if (!this.sucssyPhone) return;</span><br><span class="line">         this.sucssyPhone &#x3D; false;</span><br><span class="line">         this.content &#x3D; this.totalTime + &#39;s后重新发送&#39;;</span><br><span class="line">         let clock &#x3D; window.setInterval(() &#x3D;&gt; &#123;</span><br><span class="line">             this.totalTime--</span><br><span class="line">             this.content &#x3D; this.totalTime + &#39;s后重新发送&#39;;</span><br><span class="line">             if (this.totalTime &lt; 0) &#123;</span><br><span class="line">             window.clearInterval(clock)</span><br><span class="line">             this.content &#x3D; &#39;重新发送验证码&#39;;</span><br><span class="line">             this.totalTime &#x3D; 60</span><br><span class="line">             this.sucssyPhone &#x3D; true</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;,1000)</span><br><span class="line">     &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="限定只能输入中文"><a href="#限定只能输入中文" class="headerlink" title="限定只能输入中文"></a>限定只能输入中文</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &lt;el-form-item label&#x3D;&quot;输入您的姓名&quot; prop&#x3D;&quot;name&quot;&gt;</span><br><span class="line">    &lt;el-input v-model.trim&#x3D;&quot;messageForm.name&quot; placeholder&#x3D;&quot;请输入姓名&quot;  						maxlength&#x3D;&quot;4&quot;</span><br><span class="line">               @keyup.native&#x3D;&quot;inputChange($event)&quot; 			           @keydown.native&#x3D;&quot;inputChange($event)&quot;</span><br><span class="line">               &gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">  &lt;&#x2F;el-form-item&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 限定只能输入中文</span><br><span class="line">       inputChange (e) &#123;</span><br><span class="line">           const o &#x3D; e.target;</span><br><span class="line">           o.value &#x3D; o.value.replace(&#x2F;[^\u4E00-\u9FA5]&#x2F;g, &#39;&#39;); &#x2F;&#x2F; 清除除了中文以外的输入的字符</span><br><span class="line">       　　this.messageForm.name &#x3D; o.value;</span><br><span class="line">       &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传附件限定大小"><a href="#上传附件限定大小" class="headerlink" title="上传附件限定大小"></a>上传附件限定大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">       &lt;el-upload :action&#x3D;&quot;imgUploadUrl&quot; </span><br><span class="line">                list-type&#x3D;&quot;picture-card&quot; </span><br><span class="line">                :data&#x3D;&quot;&#123;address:&#39;goods&#39;&#125;&quot; </span><br><span class="line">                :file-list&#x3D;&#39;updataHtForm.htImgList&#39; </span><br><span class="line">                accept&#x3D;&quot;.jpg,.jpeg,.png,.gif,.bmp,.pdf,.JPG,.JPEG,.BMP,.PDF&quot; </span><br><span class="line">                :on-success&#x3D;&quot;imgSuccess&quot; </span><br><span class="line">                :on-remove&#x3D;&quot;imgRemove&quot; </span><br><span class="line">                :limit&#x3D;&quot;4&quot; </span><br><span class="line">                :class&#x3D;&quot;&#123; &#39;hide&#39;: flag&#125;&quot;</span><br><span class="line">                :before-upload&#x3D;&quot;beforeUpload&quot;</span><br><span class="line">                &gt;</span><br><span class="line">                    &lt;i class&#x3D;&quot;el-icon-plus&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">                &lt;&#x2F;el-upload&gt;</span><br><span class="line">        &#x2F;&#x2F;图片上传成功后的钩子函数</span><br><span class="line">    imgSuccess(file, fileList) &#123;</span><br><span class="line">        fileList.response &#x3D; JSON.parse(AES.decrypt(fileList.response));</span><br><span class="line">        this.updataHtForm.htImgList.push(&#123;</span><br><span class="line">            name: fileList.name,</span><br><span class="line">            url: fileList.response.msg.resultObj[0].url,</span><br><span class="line">            imageUrl: fileList.response.msg.resultObj[0].address</span><br><span class="line">        &#125;)</span><br><span class="line">        if (this.updataHtForm.htImgList.length &#x3D;&#x3D; 4) &#123;</span><br><span class="line">            this.flag &#x3D; true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F;图片列表被移除时的钩子函数</span><br><span class="line">    imgRemove(file, fileList) &#123;</span><br><span class="line">        this.updataHtForm.htImgList &#x3D; [];</span><br><span class="line">        fileList.forEach((i) &#x3D;&gt; &#123;</span><br><span class="line">            this.updataHtForm.htImgList.push(&#123;</span><br><span class="line">                name: i.name,</span><br><span class="line">                url: i.url,</span><br><span class="line">                imageUrl: i.imageUrl</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">        if (this.updataHtForm.htImgList.length &lt; 4) &#123;</span><br><span class="line">            this.flag &#x3D; false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#x2F;&#x2F; 上传附件大小</span><br><span class="line">beforeUpload (file) &#123;</span><br><span class="line">        	let testmsg&#x3D;file.name.substring(file.name.lastIndexOf(&#39;.&#39;)+1)				</span><br><span class="line">const isLt2M &#x3D; file.size &#x2F; 1024 &#x2F; 1024 &lt; 5     &#x2F;&#x2F;这里做文件大小限制</span><br><span class="line">if(!isLt2M) &#123;</span><br><span class="line">	this.$message(&#123;</span><br><span class="line">		message: &#39;上传文件大小不能超过 5MB!&#39;,</span><br><span class="line">		type: &#39;warning&#39;</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br><span class="line">return isLt2M</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串转换为数组"><a href="#字符串转换为数组" class="headerlink" title="字符串转换为数组"></a>字符串转换为数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let arrys &#x3D; &#39;文字,中文,英文,鳄鱼,法文,德文&#39;</span><br><span class="line">let ArrySum &#x3D; arrys.split(&#39;,&#39;)</span><br><span class="line">console.log(ArrySum)</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组转换为字符串"><a href="#数组转换为字符串" class="headerlink" title="数组转换为字符串"></a>数组转换为字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let ArryNum &#x3D; [&#39;睡觉&#39;,&#39;吃饭&#39;,&#39;玩游戏&#39;,&#39;k歌&#39;]</span><br><span class="line">let Nubmer &#x3D; ArryNum.join(&#39;,&#39;)</span><br><span class="line">console.log(Nubmer)</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改github密码后-sourceTree连接-不上的问题"><a href="#修改github密码后-sourceTree连接-不上的问题" class="headerlink" title="修改github密码后 sourceTree连接 不上的问题"></a>修改github密码后 sourceTree连接 不上的问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">主要原因是我们在修改密码后，sourceTree本地的passwd并没有修改</span><br><span class="line">方法也很简单，把passwd文件删除就可以了</span><br><span class="line">1.</span><br><span class="line">找到sourcetree文件所在目录，我的是在它的上一个目录，找到Atlassian目录，</span><br><span class="line">C:\Users\admin\AppData\Local\Atlassian</span><br><span class="line">2. 进入该目录，找到passwd文件，删除 </span><br><span class="line">3.删除之后，重新提交你的项目，出现弹框后，输入你的用户名和密码就可以提交了，完美解决！！！</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS中try…catch…的用法"><a href="#JS中try…catch…的用法" class="headerlink" title="JS中try…catch…的用法"></a>JS中try…catch…的用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> try</span><br><span class="line">   &#123;</span><br><span class="line">   &#x2F;&#x2F;在这里运行代码</span><br><span class="line">     抛出错误</span><br><span class="line">   &#125;</span><br><span class="line"> catch(err)</span><br><span class="line">   &#123;</span><br><span class="line">   &#x2F;&#x2F;在这里处理错误</span><br><span class="line">   &#125;</span><br><span class="line"> function myFunction()&#123;</span><br><span class="line">    try&#123; </span><br><span class="line">        var x&#x3D;document.getElementById(&quot;demo&quot;).value;   取元素的值</span><br><span class="line">        </span><br><span class="line">        if(x&#x3D;&#x3D;&quot;&quot;)    throw &quot;值为空&quot;;       根据获取的值，抛出错误</span><br><span class="line">        if(isNaN(x)) throw &quot;不是数字&quot;;</span><br><span class="line">        if(x&gt;10)     throw &quot;太大&quot;;</span><br><span class="line">        if(x&lt;5)      throw &quot;太小&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    catch(err)&#123;</span><br><span class="line">        var y&#x3D;document.getElementById(&quot;mess&quot;);     抓住上面throw抛出的错误，给p标签		显示</span><br><span class="line">        y.innerHTML&#x3D;&quot;错误：&quot; + err + &quot;。&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input v-model&#x3D;&quot;search&quot; size&#x3D;&quot;small&quot; clearable placeholder&#x3D;&quot;请输入 姓名 &#x2F; 电话号码&quot; @keyup.native.13&#x3D;&quot;getSarchkey()&quot; @clear&#x3D;&quot;getSarchkey()&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">  &#x2F;&#x2F;获取实名认证列表</span><br><span class="line">        getSarchkey () &#123;</span><br><span class="line">          this.getList()</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="两个数组的交集"><a href="#两个数组的交集" class="headerlink" title="两个数组的交集"></a>两个数组的交集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var numOne &#x3D; [0, 2, 4, 6, 8, 8];</span><br><span class="line">var numTwo &#x3D; [1, 2, 3, 4, 5, 6];</span><br><span class="line">var duplicatedValues &#x3D; […new Set(numOne)].filter(item &#x3D;&gt; numTwo.includes(item));</span><br><span class="line">console.log(duplicatedValues); </span><br><span class="line">&#x2F;&#x2F; returns [2, 4, 6]</span><br></pre></td></tr></table></figure>
+
+<h4 id="从数组中删除假值"><a href="#从数组中删除假值" class="headerlink" title="从数组中删除假值"></a>从数组中删除假值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var mixedArr &#x3D; [0, &quot;blue&quot;, &quot;&quot;, NaN, 9, true, undefined, &quot;white&quot;, false];</span><br><span class="line">var trueArr &#x3D; mixedArr.filter(Boolean);</span><br><span class="line">console.log(trueArr); </span><br><span class="line">&#x2F;&#x2F; returns [&quot;blue&quot;, 9, true, &quot;white&quot;]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="页面刷方法"><a href="#页面刷方法" class="headerlink" title="页面刷方法"></a>页面刷方法</h3><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1583807196152.png" alt="1583807196152"></p>
+<h4 id="数组（对象）去重"><a href="#数组（对象）去重" class="headerlink" title="数组（对象）去重"></a>数组（对象）去重</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let arry &#x3D; [2,3,65,5,3,2]</span><br><span class="line">let remove &#x3D; [...new Set(arry)]</span><br><span class="line">console.log(remove)</span><br><span class="line"></span><br><span class="line">let objArry &#x3D; [&#123;id:2,value: &#39;打球&#39;&#125;，&#123;id：3，value: &#39;看书&#39;&#125;，&#123;id：2，：value:&#39;打篮球&#39;&#125;]</span><br><span class="line">let obj &#x3D; &#123;&#125;;</span><br><span class="line">let arrayAndObj &#x3D; objArry.reduce((cur,next) &#x3D;&gt; &#123;</span><br><span class="line">	obj[next.id] ? &quot;&quot; : obj[next.id] &#x3D; true &amp;&amp; cur.push(next);</span><br><span class="line">		return cur;</span><br><span class="line">	&#125;,[])</span><br><span class="line">	console.log(arrayAndObj)</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动端自适应"><a href="#移动端自适应" class="headerlink" title="移动端自适应"></a>移动端自适应</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">这是基于vue-cli2.0脚手架配置的实例。 至于vue-cli3.0配置在vue.config.js中，都是大同小异呐</span><br><span class="line">1.安装： 如果Ui组件用的是vant需要安装lib-flexible不安装·打包到测试服或者生产服会有一些差异（vant 37.5为准）</span><br><span class="line">    &quot;dependencies&quot;: &#123;</span><br><span class="line">        &quot;amfe-flexible&quot;: &quot;^2.2.1&quot;,</span><br><span class="line">        &quot;axios&quot;: &quot;^0.19.2&quot;,</span><br><span class="line">        &quot;lib-flexible&quot;: &quot;^0.3.2&quot;,</span><br><span class="line">        &quot;px2rem-loader&quot;: &quot;^0.1.9&quot;,</span><br><span class="line">        &quot;vant&quot;: &quot;^2.5.5&quot;,</span><br><span class="line">        &quot;vue&quot;: &quot;^2.5.2&quot;,</span><br><span class="line">        &quot;vue-router&quot;: &quot;^3.0.1&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    npm install XX --save</span><br><span class="line">    lib—flexible</span><br><span class="line">    px2rem-loader</span><br><span class="line">    amfe-flexible</span><br><span class="line">    </span><br><span class="line">2.配置index.html: </span><br><span class="line">    &lt;!DOCTYPE html&gt;</span><br><span class="line">    &lt;html&gt;</span><br><span class="line">      &lt;head&gt;</span><br><span class="line">        &lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">        &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1, 					maximum-scale&#x3D;1, minimum-scale&#x3D;1, user-scalable&#x3D;no&quot;&gt;</span><br><span class="line">        &lt;title&gt;当家装修APP&lt;&#x2F;title&gt;</span><br><span class="line">      &lt;&#x2F;head&gt;</span><br><span class="line">      &lt;body&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;app&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">      &lt;&#x2F;body&gt;</span><br><span class="line">    &lt;&#x2F;html&gt;</span><br><span class="line">    </span><br><span class="line">3. 配置main.js:</span><br><span class="line">    import &#39;lib-flexible&#39;;</span><br><span class="line">	import &#39;amfe-flexible&#x2F;index.js&#39;</span><br><span class="line">	</span><br><span class="line">4. 在配置.postcssrc.js中（需要在项目中新建一个js文件）：</span><br><span class="line">	module.exports &#x3D; &#123;</span><br><span class="line">      &quot;plugins&quot;: &#123;</span><br><span class="line">        &quot;postcss-import&quot;: &#123;&#125;,</span><br><span class="line">        &quot;postcss-url&quot;: &#123;&#125;,</span><br><span class="line">        &#x2F;&#x2F; to edit target browsers: use &quot;browserslist&quot; field in package.json</span><br><span class="line">        &quot;autoprefixer&quot;: &#123;&#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">5.配置bulid文件夹下的utils.js：</span><br><span class="line">	  const postcssLoader &#x3D; &#123;</span><br><span class="line">        loader: &#39;postcss-loader&#39;,</span><br><span class="line">        options: &#123;</span><br><span class="line">          sourceMap: options.sourceMap</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      const px2remLoader &#x3D; &#123;</span><br><span class="line">        loader: &#39;px2rem-loader&#39;,</span><br><span class="line">        options: &#123;</span><br><span class="line">          remUnit: 37.5  &#x2F;&#x2F;设计稿的宽度 除以 10，一般设计稿的宽度都为375px</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      再则在generateLoaders（）函数：</span><br><span class="line">       const loaders &#x3D; options.usePostCSS ? [cssLoader, 		       							postcssLoader,px2remLoader] : [cssLoader,px2remLoader]</span><br><span class="line">       </span><br><span class="line">       </span><br><span class="line">	vue-cli3脚手架配置： </span><br><span class="line">	&#x2F;&#x2F;vue.config.js</span><br><span class="line">    const autoprefixer &#x3D; require(&#39;autoprefixer&#39;);</span><br><span class="line">    const pxtorem &#x3D; require(&#39;postcss-pxtorem&#39;);</span><br><span class="line">    module.exports &#x3D; &#123;</span><br><span class="line">        css: &#123;</span><br><span class="line">            loaderOptions: &#123;</span><br><span class="line">                postcss: &#123;</span><br><span class="line">                    plugins: [</span><br><span class="line">                        autoprefixer(),</span><br><span class="line">                        pxtorem(&#123;</span><br><span class="line">                            rootValue: 37.5, &#x2F;&#x2F;基准值(计算公式：设计图宽度&#x2F;10)，设计图尺寸为									基准值为375&#x2F;10&#x3D;37.5</span><br><span class="line">                            propList: [&#39;*&#39;]</span><br><span class="line">                        &#125;)</span><br><span class="line">                    ]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">       </span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6数组some（）和every（）使用"><a href="#ES6数组some（）和every（）使用" class="headerlink" title="ES6数组some（）和every（）使用"></a>ES6数组some（）和every（）使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">some():只要其中一个为true就会返回true。</span><br><span class="line">every(): 必须所有都返回true才会返回true</span><br><span class="line">every（）和 some（）目的：确定数组的所有成员是否满足指定的需求</span><br><span class="line">	</span><br><span class="line">    let computers &#x3D; [</span><br><span class="line">        &#123;name:&quot;Apple&quot;,ram:8&#125;,</span><br><span class="line">        &#123;name:&quot;IBM&quot;,ram:4&#125;,</span><br><span class="line">        &#123;name:&quot;Acer&quot;,ram:32&#125;,</span><br><span class="line">    ];</span><br><span class="line">    let result&#x3D; computers.every( computer &#x3D;&gt;&#123;</span><br><span class="line">       return computer.ram &gt; 16</span><br><span class="line">    &#125;)</span><br><span class="line">	console.log(result)&#x2F;&#x2F;false;</span><br><span class="line">    let some &#x3D; computers.some(computer &#x3D;&gt;&#123;</span><br><span class="line">       return computer.ram &gt; 16</span><br><span class="line">    &#125;)</span><br><span class="line">	console.log(some)&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<h2 id="js数组的操作方法，concat，splice，join，split-indexOf"><a href="#js数组的操作方法，concat，splice，join，split-indexOf" class="headerlink" title="js数组的操作方法，concat，splice，join，split,indexOf"></a>js数组的操作方法，concat，splice，join，split,indexOf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; concat() : 复制当前数组所创建的副本，如果传参，会先创建副本，接收到的参数添加到副本数组的末尾。如果传递其他值，则直接添加到副本数组的末尾</span><br></pre></td></tr></table></figure>
+
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><ul>
+<li>判断类型是否为原始类型，如果是，无需拷贝直接返回</li>
+<li>为避免出现循环引用，拷贝对象时先判断存储空间中是否存在当前对象，如果有就直接返回</li>
+<li>开辟一个存储空间，来存储当前对象和拷贝对象的对应关系</li>
+<li>对引用类型递归拷贝直到属性为原始类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const deepClone &#x3D; (target, cache &#x3D; new WeakMap()) &#x3D;&gt; &#123;</span><br><span class="line">    if(target &#x3D;&#x3D;&#x3D; null || typeof target !&#x3D;&#x3D; &#39;object&#39;) &#123;</span><br><span class="line">        return target</span><br><span class="line">    &#125;</span><br><span class="line">    if(cache.get(target)) &#123;</span><br><span class="line">        return target</span><br><span class="line">    &#125;</span><br><span class="line">    const copy &#x3D; Array.isArray(target) ? [] : &#123;&#125;</span><br><span class="line">    cache.set(target, copy)</span><br><span class="line">    Object.keys(target).forEach(key &#x3D;&gt; copy[key] &#x3D; deepClone(obj[key], cache))</span><br><span class="line">    return copy</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 冒泡排序</span><br><span class="line">mounted() &#123;</span><br><span class="line">  this.study()</span><br><span class="line">&#125;,</span><br><span class="line">methods: &#123;</span><br><span class="line">    BubbleSort (arr) &#123;</span><br><span class="line">      const arrLenght &#x3D; arr.length</span><br><span class="line">      for (let i &#x3D; 0; i&lt;arrLenght; i++) &#123;</span><br><span class="line">        for (let j &#x3D; 1; j&lt;arrLenght - i; j++) &#123;</span><br><span class="line">          if (arr[j] &lt; arr[j - 1]) &#123;</span><br><span class="line">            const temp &#x3D; arr[j]</span><br><span class="line">            arr[j] &#x3D; arr[j-1]</span><br><span class="line">            arr[j-1] &#x3D; temp</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      return arr</span><br><span class="line">    &#125;,</span><br><span class="line">  study () &#123;</span><br><span class="line">    let arr &#x3D; [23,65,32,4,68,15,8]</span><br><span class="line">    this.BubbleSort(arr)</span><br><span class="line">    console.log(arr)</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="jenkins-关闭和重启"><a href="#jenkins-关闭和重启" class="headerlink" title="jenkins 关闭和重启"></a>jenkins 关闭和重启</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">关闭则在浏览器中输入： http:&#x2F;&#x2F;localhost:8080&#x2F;exit</span><br><span class="line">重启则在浏览器输入：http:&#x2F;&#x2F;localhost:8080&#x2F;restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="elementui-上传图片预览-点击文件列表中已上传的文件时的钩子"><a href="#elementui-上传图片预览-点击文件列表中已上传的文件时的钩子" class="headerlink" title="elementui 上传图片预览(点击文件列表中已上传的文件时的钩子)"></a>elementui 上传图片预览(点击文件列表中已上传的文件时的钩子)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> :on-preview&#x3D;&quot;util.imagePreview&quot;</span><br><span class="line">  </span><br><span class="line">  &#x2F;&#x2F;图片预览 (任何图片都可以)</span><br><span class="line">  util.js 公用方法: </span><br><span class="line">  imagePreview(file)&#123;</span><br><span class="line">      if(Object.prototype.toString.call(file) &#x3D;&#x3D;&#x3D; &#39;[object Object]&#39;)&#123;</span><br><span class="line">      	window.open(file.url);</span><br><span class="line">      &#125;else if(Object.prototype.toString.call(file) &#x3D;&#x3D;&#x3D; &#39;[object String]&#39;)&#123;</span><br><span class="line">      	window.open(file);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="图片预览（任何图片都可以）"><a href="#图片预览（任何图片都可以）" class="headerlink" title="图片预览（任何图片都可以）"></a>图片预览（任何图片都可以）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">imagePreview(file)&#123;</span><br><span class="line">        if(Object.prototype.toString.call(file) &#x3D;&#x3D;&#x3D; &#39;[object Object]&#39;)&#123;</span><br><span class="line">            window.open(file.url);</span><br><span class="line">        &#125;else if(Object.prototype.toString.call(file) &#x3D;&#x3D;&#x3D; &#39;[object String]&#39;)&#123;</span><br><span class="line">            window.open(file);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>本文链接：</strong><a href="http://yoursite.com/2020/10/08/commonMethod/">http://yoursite.com/2020/10/08/commonMethod/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2020/10/08/performance/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <a href="1477068773" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe651;</i></a>
+    
+    
+      <a href="LJJ5998MX" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe6e1;</i></a>
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2020 李某人<br>
+    Powered by <a href="https://juejin.im/user/4230576475215160/" target="_blank" class="mdui-text-color-theme-accent">掘金</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>

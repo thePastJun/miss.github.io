@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+
+  
+  <title>常见的前端面试题 | web瞎搞</title>
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="web瞎搞" type="application/atom+xml">
+  <meta name="description" content="防抖 n秒内函数只会执行一次，如果n秒内事件再次被触发，则重新计算时间 123456789function debounce(fn, time &#x3D; 500) &amp;#123;	let timer &#x3D; null	return () &#x3D;&gt;&amp;#123;	   clearTimeout(timer);	   timer &#x3D; setTimeout(() &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的前端面试题">
+<meta property="og:url" content="http://yoursite.com/2020/10/08/interviewQuestion/index.html">
+<meta property="og:site_name" content="web瞎搞">
+<meta property="og:description" content="防抖 n秒内函数只会执行一次，如果n秒内事件再次被触发，则重新计算时间 123456789function debounce(fn, time &#x3D; 500) &amp;#123;	let timer &#x3D; null	return () &#x3D;&gt;&amp;#123;	   clearTimeout(timer);	   timer &#x3D; setTimeout(() &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-08T12:31:50.673Z">
+<meta property="article:modified_time" content="2020-10-08T12:32:42.111Z">
+<meta property="article:author" content="李某人">
+<meta name="twitter:card" content="summary">
+
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="web瞎搞">
+  <meta name="msapplication-starturl" content="http://yoursite.com/2020/10/08/interviewQuestion/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="web瞎搞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  
+    <meta property="article:published_time" content="Thu Oct 08 2020 20:31:50 GMT+0800">
+    <meta property="article:modified_time" content="Thu Oct 08 2020 20:32:42 GMT+0800">
+  
+
+  
+    <link rel="canonical" href="http://yoursite.com/2020/10/08/interviewQuestion/">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">web瞎搞</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">李某人</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:1477068773@qq.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '1477068773@qq.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">主页</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">归档</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/10/">十月 2020<span class="mdui-ripple sidebar_archives-count">5</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">分类</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">分类为空</a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">标签</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">标签为空</a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">关于</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tags" class="mdui-list-item mdui-ripple">Tags</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">友情链接</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://juejin.im/user/4230576475215160/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">掘金</a>
+        
+          <a href="https://github.com/thePastJun/" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">Github</a>
+        
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-6.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">常见的前端面试题</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-10-08 / <i class="iconfont">&#xe601;</i> 李某人</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">Send to mobile phone</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=常见的前端面试题&url=http://yoursite.com/2020/10/08/interviewQuestion/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到微博</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=常见的前端面试题&url=http://yoursite.com/2020/10/08/interviewQuestion/&via=李某人" target="_blank" class="mdui-ripple">分享到Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/10/08/interviewQuestion/" target="_blank" class="mdui-ripple">分享到Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/10/08/interviewQuestion/" target="_blank" class="mdui-ripple">分享到Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/10/08/interviewQuestion/&title=常见的前端面试题" target="_blank" class="mdui-ripple">分享到LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=web瞎搞&title=常见的前端面试题&summary=&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2020/10/08/interviewQuestion/" target="_blank" class="mdui-ripple">分享到QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/10/08/interviewQuestion/&text=常见的前端面试题" target="_blank" class="mdui-ripple">分享到Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h5 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h5><ul>
+<li><p>n秒内函数只会执行一次，如果n秒内事件再次被触发，则重新计算时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function debounce(fn, time &#x3D; 500) &#123;</span><br><span class="line">	let timer &#x3D; null</span><br><span class="line">	return () &#x3D;&gt;&#123;</span><br><span class="line">	   clearTimeout(timer);</span><br><span class="line">	   timer &#x3D; setTimeout(() &#x3D;&gt;&#123;</span><br><span class="line">	   		fn.apply(this,arguments)</span><br><span class="line">	   &#125;,time);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h5><ul>
+<li><p>事件在n秒内只会执行一次，在n秒内事件不再触发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function throttle(fn,time)&#123;</span><br><span class="line">    let bool &#x3D; true;</span><br><span class="line">    return () &#x3D;&gt;&#123;</span><br><span class="line">        if (!bool) return;</span><br><span class="line">        bool &#x3D; false;</span><br><span class="line">        setTimeout(() &#x3D;&gt;&#123;</span><br><span class="line">        	fn.apply(this,arguments);</span><br><span class="line">        	bool &#x3D; true;</span><br><span class="line">        &#125;,time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h5 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h5><ul>
+<li>定义: 函数A返回函数B，函数B能访问函数A中的变量，那么函数B 就可以称之为闭包</li>
+<li>特点<ul>
+<li>函数嵌套函数</li>
+<li>函数内部可以引用外部的参数和变量</li>
+<li>参数和变量不会被垃圾回收机制回收(使用不当会造成内存泄漏）</li>
+</ul>
+</li>
+<li>优点<ul>
+<li>私有成员的存在</li>
+<li>避免全局变量的污染</li>
+</ul>
+</li>
+</ul>
+<h5 id="javaScript的作用域和作用链"><a href="#javaScript的作用域和作用链" class="headerlink" title="javaScript的作用域和作用链"></a>javaScript的作用域和作用链</h5><ul>
+<li><p>作用域</p>
+<ul>
+<li>定义变量的区域</li>
+</ul>
+</li>
+<li><p>作用域链</p>
+<ul>
+<li>保证对执行环境有权访问的所有变量和函数的有序访问，通过作用域链，我们可以访问到外层环境的变量和 函数。</li>
+</ul>
+</li>
+</ul>
+<h5 id="哪些操作会造成内存泄漏？"><a href="#哪些操作会造成内存泄漏？" class="headerlink" title="哪些操作会造成内存泄漏？"></a>哪些操作会造成内存泄漏？</h5><ul>
+<li>被遗忘的计时器或回调函数、</li>
+<li>脱离 DOM 的引用</li>
+<li>没必要的全局变量</li>
+<li>闭包</li>
+</ul>
+<h5 id="什么是内存泄漏"><a href="#什么是内存泄漏" class="headerlink" title="什么是内存泄漏"></a>什么是内存泄漏</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">应用程序不再需要占用内存的时候，由于某些原因，内存没有被操作系统或可用内存池回收</span><br></pre></td></tr></table></figure>
+
+<h5 id="垃圾回收机制和v8垃圾回收机制"><a href="#垃圾回收机制和v8垃圾回收机制" class="headerlink" title="垃圾回收机制和v8垃圾回收机制"></a>垃圾回收机制和v8垃圾回收机制</h5><ul>
+<li>标记清除和引用计数</li>
+<li>v8： 在 V8 中通过GC算法进行垃圾回收，将内存分为新生代和老生代，新生代的对象为存活时间较短的对象，老生代的对象为存活事件较长或常驻内存的对象。</li>
+</ul>
+<h5 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h5><ul>
+<li>原型：所有的函数都有一个特殊的属性**<code>prototype</code>(原型)<strong>，<code>prototype</code>属性是一个指针，指向的是一个对象(原型对象)，原型对象中的方法和属性都可以</strong>被函数的实例**所共享。</li>
+<li>原型链:原型链是用于<strong>查找引用类型（对象）的属性</strong>，查找属性会沿着原型链依次进行，如果找到该属性会停止搜索并做相应的操作，否则将会沿着原型链依次查找直到结尾。常见的应用是用在<strong>创建对象</strong>和<strong>继承</strong>中。</li>
+</ul>
+<h5 id="Vue组件是什么"><a href="#Vue组件是什么" class="headerlink" title="Vue组件是什么"></a>Vue组件是什么</h5><ul>
+<li>组件是复用的vue实例。如果网页中的某一个部分需要在多个场景中使用，那么我们就可以将其    抽出封装成一个可复用的组件</li>
+</ul>
+<h5 id="说说在vue-js中如何实现组件间通信-（props：读-【破-p-思】）"><a href="#说说在vue-js中如何实现组件间通信-（props：读-【破-p-思】）" class="headerlink" title="说说在vue.js中如何实现组件间通信 （props：读 【破  p  思】）"></a>说说在vue.js中如何实现组件间通信 （props：读 【破  p  思】）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.假设父组件的模板包含子组件，我们可以通过props来正向地把数据从父组件传递给子组件，Props可以是Number,string,Array,object</span><br><span class="line">2.组件中的props与data函数的区别是： props中的数据来自于父级，而data函数是组件内定义的数据，所以它的作用域是组件本身。它们都可以在template、computed，watch以及methods中使用</span><br><span class="line">3.有时候，传递过来的数据来自于父级的动态数据，这时我们可以使用v-bing来动态绑定props中的数据</span><br><span class="line">4.通过自定义事件，我们可以把数据从子组件传输给父组件。子组件通过 $emit() 来触发事件，而父组件通过 $on() 来监听事件，这是典型的观察者模式。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="vue组件间通信六种方式"><a href="#vue组件间通信六种方式" class="headerlink" title="vue组件间通信六种方式"></a>vue组件间通信六种方式</h5><ul>
+<li>props / $emit<ul>
+<li>父组件A通过Props的方式向子组件B传递，子组件B从父组件A通过在子组件B中$emit，父组件A中v-on的方式实现的</li>
+</ul>
+</li>
+<li>$emit / $on<ul>
+<li>这种方法通过一个空的Vue实例作为中央事件总线，用它来触发事件和监听事件</li>
+</ul>
+</li>
+<li>$attrs / $listeners<ul>
+<li>多级组件嵌套需要传递数据时，可以使用它</li>
+</ul>
+</li>
+<li>provide / inject  【provide读： p 罗 外的】<ul>
+<li>主要解决了跨级组件间的通信问题，不过它的使用场景，是子组件获取上级组件的状态，跨级组件间建立了一种主动提供与依赖注入的关系</li>
+</ul>
+</li>
+<li>$parent / $children<ul>
+<li>访问父 / 子实例</li>
+</ul>
+</li>
+<li>vuex<ul>
+<li>一个专为 Vue.js 应用程序开发的状态管理插件，是一种单向数据流</li>
+<li>state: 是一个对象，里面存放我们需要用的变量  【读  斯等的】</li>
+<li>getter：获取state里面的变量</li>
+<li>mutation： 用来改变state里面的状态，可以直接变更状态，只能是同步操作this.$store.commit(‘SET_NUMBER’,10)</li>
+<li>action： 提交的是 mutation，不能直接变更状态，可以包含任意异步操作。this.$store.dispatch(‘ACTION_NAME’,data)   【dispatch 读   第斯打吃】</li>
+<li>module： 如果用到state很多变量的情况下，使用module来拆分</li>
+</ul>
+</li>
+</ul>
+<h5 id="Map和Set的区别及使用场景"><a href="#Map和Set的区别及使用场景" class="headerlink" title="Map和Set的区别及使用场景"></a>Map和Set的区别及使用场景</h5><ul>
+<li><p>Map</p>
+<ul>
+<li>一组键值对的结构,具有极快的查找速度 ,Object结构提供了“字符串—值”的对应，Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。(初始化Map需要一个二维数组，或者直接初始化一个空Map)</li>
+<li>应用场景： 数据存储 </li>
+</ul>
+</li>
+<li><p>Set</p>
+<ul>
+<li>类似数组的一种数据结构，不同点在于Set中没有重复的值。(只有值，没有键,也是一组key的集合，但不存储value。)</li>
+<li>应用场景:  数据去重</li>
+</ul>
+</li>
+</ul>
+<h5 id="websockets"><a href="#websockets" class="headerlink" title="websockets"></a>websockets</h5><ul>
+<li><p>什么是websockets</p>
+<ul>
+<li>支持客户端和服务器之间的全双工通信，通过单个TCP套连接 在客户端和服务器之间  提供持久的实时通信</li>
+</ul>
+</li>
+<li><p>websocket协议只有两个议程</p>
+<ul>
+<li><p>打开握手</p>
+</li>
+<li><p>帮助数据传输</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一旦客服端和服务器握手成功，它们就可以随意的以较少的开销相互发送数据</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>浏览器关闭后会发生什么</p>
+<ul>
+<li>在这种情况下，websocket调用close事件，它允许我们编写终止当前用户连接的逻辑</li>
+</ul>
+</li>
+</ul>
+<h5 id="Vuex中action通常是异步的，那么如何知道action什么时候结束？"><a href="#Vuex中action通常是异步的，那么如何知道action什么时候结束？" class="headerlink" title="Vuex中action通常是异步的，那么如何知道action什么时候结束？"></a>Vuex中action通常是异步的，那么如何知道action什么时候结束？</h5><ul>
+<li>在action函数中返回Promise，然后再提交时候用then处理</li>
+</ul>
+<h5 id="谈一谈你对TCP三次握手和四次挥手的理解"><a href="#谈一谈你对TCP三次握手和四次挥手的理解" class="headerlink" title="谈一谈你对TCP三次握手和四次挥手的理解"></a>谈一谈你对TCP三次握手和四次挥手的理解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A： 我要挂电话了哦</span><br><span class="line">B： 等一下，我还在敷面膜</span><br><span class="line">B： 我敷玩了，现在可以挂了</span><br><span class="line">A:  我舍不得挂， 你挂吧</span><br><span class="line">B： 好吧，我挂了</span><br><span class="line">A： 等了2MSL听见嘟嘟嘟的声音后挂断了 （2MSL &#x3D;&#x3D; 4分钟  它是任何报文在网络上存在的最长时间，超过这个时间报文将被丢弃，MSL中文译为&#39;报文最大生存时间&#39;）</span><br></pre></td></tr></table></figure>
+
+<h5 id="为什么http建立连接需要三次握手，不是两次或四次？"><a href="#为什么http建立连接需要三次握手，不是两次或四次？" class="headerlink" title="为什么http建立连接需要三次握手，不是两次或四次？"></a>为什么http建立连接需要三次握手，不是两次或四次？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">三次是最少的安全次数，两次不安全，四次浪费资源</span><br></pre></td></tr></table></figure>
+
+<h5 id="为什么要四次挥手"><a href="#为什么要四次挥手" class="headerlink" title="为什么要四次挥手"></a>为什么要四次挥手</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TCP是全双工信道，何为全双工就是客服端与服务端建立两条通道，通道1：客服端的输出连接服务端的输入； 通道2： 客服端的输入连接服务端的输出。 两个通道可以同时工作： 客服端向服务端发送信号的同时服务端也可以向客服端发送信号.</span><br></pre></td></tr></table></figure>
+
+<h5 id="promise-（resolve【成功】，reject【拒绝】）"><a href="#promise-（resolve【成功】，reject【拒绝】）" class="headerlink" title="promise （resolve【成功】，reject【拒绝】）"></a>promise （resolve【成功】，reject【拒绝】）</h5><ul>
+<li>是异步编程的一种解决方案，其实是一个构造函数，自己身上有all、reject、resolve这几个方法，原型上有then、catch等方法</li>
+<li>对象的状态不受外界影响. Promise对象代表一个异步操作，有三种状态： pending（进行中）、fulfilled（已成功）、rejected（已失败）。</li>
+<li>一旦状态改变，就不会再变，任何时候都可以得到这个结果</li>
+</ul>
+<h5 id="async-await"><a href="#async-await" class="headerlink" title="async / await"></a>async / await</h5><ul>
+<li>搭配promise，可以通过编写同步的代码处理异步流程，提高代码的简洁性和可读性</li>
+<li>1.解决了回调地狱的问题  2.支持并发执行  3.可以添加返回值return  4.可以在代码中添加try / catch捕获错误</li>
+</ul>
+<h5 id="Vue实现数据双向绑定的原理"><a href="#Vue实现数据双向绑定的原理" class="headerlink" title="Vue实现数据双向绑定的原理"></a>Vue实现数据双向绑定的原理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">采用数据劫持结合发布者和订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter、getter，在数据变动是发布消息给订阅者，触发相应监听回调。</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="你知道Vue3-x响应式数据原理吗？"><a href="#你知道Vue3-x响应式数据原理吗？" class="headerlink" title="你知道Vue3.x响应式数据原理吗？"></a>你知道Vue3.x响应式数据原理吗？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Proxy【读  伯 乱 k谁】可以直接监听对象（直接监听对象而非属性）和数组的变化，并且有多达13种拦截方法。并且作为新标准将受到浏览器厂商重点持续的性能优化。</span><br></pre></td></tr></table></figure>
+
+<h5 id="lt-keep-alive-gt-lt-keep-alive-gt-的作用是什么"><a href="#lt-keep-alive-gt-lt-keep-alive-gt-的作用是什么" class="headerlink" title="&lt;keep-alive&gt;&lt;/keep-alive&gt;的作用是什么?"></a><code>&lt;keep-alive&gt;&lt;/keep-alive&gt;</code>的作用是什么?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">用于保留组件状态或避免重新渲染。起到一个缓存作用</span><br><span class="line">被 keep-alive 包裹的组件被缓存之后有两个独有的生命周期： activated 和 deactivated。（滴爱可的  维的）</span><br><span class="line">activated 生命周期在组件激活时调用、deactivated 生命周期在组件停用时调用。</span><br></pre></td></tr></table></figure>
+
+<h5 id="computed-和-watch-的区别和运用的场景？"><a href="#computed-和-watch-的区别和运用的场景？" class="headerlink" title="computed 和 watch 的区别和运用的场景？"></a>computed 和 watch 的区别和运用的场景？</h5><ul>
+<li><p>computed</p>
+<ul>
+<li><code>定义：</code>是计算属性，依赖其它属性值，并且 computed 的值有<strong>缓存</strong>，只有它<strong>依赖的属性值</strong>发生改变，下一次获取 computed 的值时才会重新计算 computed 的值；</li>
+<li><code>应用场景：</code>进行数值计算，并依赖于其它数据,这是我们就可以用computed</li>
+</ul>
+</li>
+<li><p>watch</p>
+<ul>
+<li><code>定义：</code>没有缓存性，更多是起到「<strong>观察</strong>」的作用，类似于某些数据的监听回调 ，每当监听的数据变化时都会执行回调进行后续操作；当我们需要深度监听对象中的属性时，可以打开deep：true选项，这样便会对对象中的每一项进行监听</li>
+<li><code>应用场景：</code>当我们需要在数据变化时执行异步或开销较大的操作，这时我们可以选择watch</li>
+</ul>
+</li>
+</ul>
+<h5 id="为什么-v-for-和-v-if-不建议用在一起"><a href="#为什么-v-for-和-v-if-不建议用在一起" class="headerlink" title="为什么 v-for 和 v-if 不建议用在一起"></a>为什么 v-for 和 v-if 不建议用在一起</h5><ul>
+<li>当 v-for 和 v-if 处于同一个节点时，v-for 的优先级比 v-if 更高，这意味着 v-if 将分别重复运行于每个 v-for 循环中。</li>
+<li>如果要遍历的数组很大，而真正要展示的数据很少时，这将造成很大的性能浪费</li>
+<li>这种场景建议使用 computed，先对数据进行过滤</li>
+</ul>
+<h5 id="组件中的data为什么是一个函数？"><a href="#组件中的data为什么是一个函数？" class="headerlink" title="组件中的data为什么是一个函数？"></a>组件中的data为什么是一个函数？</h5><ul>
+<li>如果data是对象的话，对象属于引用类型，会影响到所有的实例。所以为了保证组件不同的实例之间data不冲突，data必须是一个函数。</li>
+</ul>
+<h5 id="子组件为什么不可以修改父组件传递的Prop？-怎么理解vue的单向数据流？"><a href="#子组件为什么不可以修改父组件传递的Prop？-怎么理解vue的单向数据流？" class="headerlink" title="子组件为什么不可以修改父组件传递的Prop？/怎么理解vue的单向数据流？"></a>子组件为什么不可以修改父组件传递的Prop？/怎么理解vue的单向数据流？</h5><ul>
+<li>Vue提倡单向数据流，如果破坏了单向数据流，当应用复杂时，debug 的成本会非常高。</li>
+</ul>
+<h5 id="v-model是如何实现双向绑定的？"><a href="#v-model是如何实现双向绑定的？" class="headerlink" title="v-model是如何实现双向绑定的？"></a>v-model是如何实现双向绑定的？</h5><ul>
+<li>v-model是用来在表单控件或者组件上创建双向绑定的</li>
+<li>它本质是v-bind和v-on的语法糖</li>
+</ul>
+<h5 id="vue的生命周期"><a href="#vue的生命周期" class="headerlink" title="vue的生命周期"></a>vue的生命周期</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载Dom、渲染→更新→渲染、销毁等一系列过程</span><br></pre></td></tr></table></figure>
+
+<h5 id="虚拟-DOM-实现原理？"><a href="#虚拟-DOM-实现原理？" class="headerlink" title="虚拟 DOM 实现原理？"></a>虚拟 DOM 实现原理？</h5><ul>
+<li>用 JavaScript 对象模拟真实 DOM 树，对真实 DOM 进行抽象；</li>
+<li>diff 算法 — 比较两棵虚拟 DOM 树的差异；</li>
+<li>pach 算法 — 将两个虚拟 DOM 对象的差异应用到真正的 DOM 树。</li>
+</ul>
+<h5 id="虚拟DOM的优缺点"><a href="#虚拟DOM的优缺点" class="headerlink" title="虚拟DOM的优缺点"></a>虚拟DOM的优缺点</h5><ul>
+<li><p>优点</p>
+<ul>
+<li>保证性能下限</li>
+<li>无需手动操作 DOM</li>
+<li>跨平台</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>无法进行极致优化</li>
+</ul>
+</li>
+</ul>
+<h5 id="nextTick的实现原理是什么？"><a href="#nextTick的实现原理是什么？" class="headerlink" title="nextTick的实现原理是什么？"></a>nextTick的实现原理是什么？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在下次 DOM 更新循环结束之后执行延迟回调，在修改数据之后立即使用 nextTick 来获取更新后的 DOM。</span><br></pre></td></tr></table></figure>
+
+<h5 id="Vue-怎么用-vm-set-解决对象新增属性不能响应的问题-？"><a href="#Vue-怎么用-vm-set-解决对象新增属性不能响应的问题-？" class="headerlink" title="Vue 怎么用 vm.$set() 解决对象新增属性不能响应的问题 ？"></a>Vue 怎么用 vm.$set() 解决对象新增属性不能响应的问题 ？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">受现代 JavaScript 的限制 ，Vue 无法检测到对象属性的添加或删除。由于 Vue 会在初始化实例时对属性执行 getter&#x2F;setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式的。但是 Vue 提供了 Vue.set (object, propertyName, value) &#x2F; vm.$set (object, propertyName, value)  来实现为对象添加响应式属性</span><br></pre></td></tr></table></figure>
+
+<h5 id="Vue-中的-key-有什么作用？"><a href="#Vue-中的-key-有什么作用？" class="headerlink" title="Vue 中的 key 有什么作用？"></a>Vue 中的 key 有什么作用？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">key 是为 Vue 中 vnode 的唯一标记，通过这个 key，我们的 diff算法 操作可以更准确、更快速</span><br></pre></td></tr></table></figure>
+
+<h5 id="为什么不建议用index作为key"><a href="#为什么不建议用index作为key" class="headerlink" title="为什么不建议用index作为key?"></a>为什么不建议用index作为key?</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不建议 用index 作为 key，和没写基本上没区别，因为不管你数组的顺序怎么颠倒，index 都是 0, 1, 2 这样排列，导致 Vue 会复用错误的旧子节点，做很多额外的工作</span><br></pre></td></tr></table></figure>
+
+<h5 id="在什么阶段才能访问操作DOM？"><a href="#在什么阶段才能访问操作DOM？" class="headerlink" title="在什么阶段才能访问操作DOM？"></a>在什么阶段才能访问操作DOM？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在 mounted 中可以访问操作 DOM。</span><br></pre></td></tr></table></figure>
+
+<h5 id="Vue事件绑定原理是什么？"><a href="#Vue事件绑定原理是什么？" class="headerlink" title="Vue事件绑定原理是什么？"></a>Vue事件绑定原理是什么？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原生事件绑定是通过addEventListener绑定给真实元素的，组件事件绑定是通过Vue自定义的$on实现的。</span><br></pre></td></tr></table></figure>
+
+<h5 id="Vue中组件生命周期调用顺序是什么样的？"><a href="#Vue中组件生命周期调用顺序是什么样的？" class="headerlink" title="Vue中组件生命周期调用顺序是什么样的？"></a>Vue中组件生命周期调用顺序是什么样的？</h5><ul>
+<li>组件的调用顺序都是先父后子,渲染完成的顺序是先子后父。</li>
+<li>组件的销毁操作是先父后子，销毁完成的顺序是先子后父。</li>
+</ul>
+<h5 id="你的接口请求一般放在哪个生命周期中？"><a href="#你的接口请求一般放在哪个生命周期中？" class="headerlink" title="你的接口请求一般放在哪个生命周期中？"></a>你的接口请求一般放在哪个生命周期中？</h5><ul>
+<li>可以在钩子函数 created、beforeMount、mounted 中进行调用，因为在这三个钩子函数中，data 已经创建，可以将服务端端返回的数据进行赋值。</li>
+<li>但是推荐在 created 钩子函数中调用异步请求，能更快获取到服务端数据，减少页面loading 时间；</li>
+</ul>
+<h5 id="vue路由hash模式和history模式实现原理分别是什么，他们的区别是什么？"><a href="#vue路由hash模式和history模式实现原理分别是什么，他们的区别是什么？" class="headerlink" title="vue路由hash模式和history模式实现原理分别是什么，他们的区别是什么？"></a>vue路由hash模式和history模式实现原理分别是什么，他们的区别是什么？</h5><ul>
+<li><p>实现原理</p>
+<ul>
+<li><p>hash模式</p>
+<ul>
+<li>后面 hash 值的变化，不会导致浏览器向服务器发出请求，浏览器不发出请求，就不会刷新页面</li>
+</ul>
+</li>
+<li><p>history模式</p>
+<ul>
+<li>history 模式的实现，主要是 HTML5 标准发布的两个 API，<strong>pushState</strong> 和 <strong>replaceState</strong>，这两个 API 可以在改变 url，但是不会发送请求。这样就可以监听 url 变化来实现更新页面部分内容的操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>区别</p>
+<ul>
+<li>url 展示上，hash 模式有“#”，history 模式没有</li>
+<li>刷新页面时，hash 模式可以正常加载到 hash 值对应的页面，而 history 没有处理的话，会返回 404，一般需要后端将所有页面都配置重定向到首页路由</li>
+<li>兼容性，hash 可以支持低版本浏览器和 IE。</li>
+</ul>
+</li>
+</ul>
+<h5 id="路由懒加载是什么意思？如何实现路由懒加载？"><a href="#路由懒加载是什么意思？如何实现路由懒加载？" class="headerlink" title="路由懒加载是什么意思？如何实现路由懒加载？"></a>路由懒加载是什么意思？如何实现路由懒加载？</h5><ul>
+<li>定义： 把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件</li>
+<li>实现：结合 Vue 的异步组件和 Webpack 的代码分割功能</li>
+</ul>
+<h5 id="Vue-router-导航守卫有哪些"><a href="#Vue-router-导航守卫有哪些" class="headerlink" title="Vue-router 导航守卫有哪些"></a>Vue-router 导航守卫有哪些</h5><ul>
+<li>全局前置/钩子：beforeEach、beforeResolve、afterEach</li>
+<li>路由独享的守卫：beforeEnter</li>
+<li>组件内的守卫：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave</li>
+</ul>
+<h5 id="vue路由的钩子函数"><a href="#vue路由的钩子函数" class="headerlink" title="vue路由的钩子函数"></a>vue路由的钩子函数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">首页可以控制导航跳转，beforeEach，afterEach等，一般用于页面title的修改。一些需要登录才能调整页面的重定向功能。</span><br><span class="line">beforeEach主要有3个参数to，from，next。</span><br><span class="line">to：route即将进入的目标路由对象。</span><br><span class="line">from：route当前导航正要离开的路由。</span><br><span class="line">next：function一定要调用该方法resolve这个钩子。执行效果依赖next方法的调用参数。可以控制网页的跳转</span><br></pre></td></tr></table></figure>
+
+<h5 id="什么是-mixin-？"><a href="#什么是-mixin-？" class="headerlink" title="什么是 mixin ？"></a>什么是 mixin ？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mixin 使我们能够为 Vue 组件编写可插拔和可重用的功能。</span><br></pre></td></tr></table></figure>
+
+<h5 id="在-Vue-实例中编写生命周期-hook-或其他-option-properties-时，为什么不使用箭头函数-？"><a href="#在-Vue-实例中编写生命周期-hook-或其他-option-properties-时，为什么不使用箭头函数-？" class="headerlink" title="在 Vue 实例中编写生命周期 hook 或其他 option/properties 时，为什么不使用箭头函数 ？"></a>在 Vue 实例中编写生命周期 hook 或其他 option/properties 时，为什么不使用箭头函数 ？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">箭头函数自已没有定义 this 。</span><br></pre></td></tr></table></figure>
+
+<h5 id="Vue模版编译原理知道吗，能简单说一下吗？"><a href="#Vue模版编译原理知道吗，能简单说一下吗？" class="headerlink" title="Vue模版编译原理知道吗，能简单说一下吗？"></a>Vue模版编译原理知道吗，能简单说一下吗？</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">简单说，Vue的编译过程就是将template转化为render函数的过程。</span><br></pre></td></tr></table></figure>
+
+<h5 id="diff算法说一下"><a href="#diff算法说一下" class="headerlink" title="diff算法说一下"></a>diff算法说一下</h5><ul>
+<li>同级比较，再比较子节点</li>
+<li>先判断一方有子节点一方没有子节点的情况(如果新的children没有子节点，将旧的子节点移除)</li>
+</ul>
+<h5 id="说说你对SSR的了解"><a href="#说说你对SSR的了解" class="headerlink" title="说说你对SSR的了解"></a>说说你对SSR的了解</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SSR也就是服务端渲染，也就是将Vue在客户端把标签渲染成HTML的工作放在服务端完成，然后再把html直接返回给客户端</span><br></pre></td></tr></table></figure>
+
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>本文链接：</strong><a href="http://yoursite.com/2020/10/08/interviewQuestion/">http://yoursite.com/2020/10/08/interviewQuestion/</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+      <a rel="prev" class="extend prev" href="/2020/10/08/performance/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
+      </a>
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/2020/10/08/webstud/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <a href="1477068773" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe651;</i></a>
+    
+    
+      <a href="LJJ5998MX" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe6e1;</i></a>
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2019 - 2020 李某人<br>
+    Powered by <a href="https://juejin.im/user/4230576475215160/" target="_blank" class="mdui-text-color-theme-accent">掘金</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  
+<script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+
+</body>
+</html>
